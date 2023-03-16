@@ -27,9 +27,16 @@ class DocsController < ApplicationController
     end
 
     def update
+        if @doc.update(doc_params) 
+            redirect_to @doc
+        else
+            render 'edit'
+        end
     end
 
     def destroy
+        @doc.destroy
+        redirect_to docs_path
     end
 
     private
@@ -40,6 +47,4 @@ class DocsController < ApplicationController
         def doc_params
             params.require(:doc).permit(:title, :content)
         end
-
-
 end

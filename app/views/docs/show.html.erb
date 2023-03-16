@@ -6,3 +6,7 @@
 <p>
     <%= @doc.content %>
 </p>
+
+<%= link_to 'All Documents', docs_path %>
+<%= link_to 'Edit Documents', edit_doc_path(@doc) %>
+<%= button_to 'Delete Documents', doc_path(@doc), method: :delete, data: { confirm: 'Are you sure?' } %>
