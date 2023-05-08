@@ -15,9 +15,9 @@ class DocsController < ApplicationController
     end
 
     def create
-        @doc = Doc.new(doc_params)
+        @doc = current_user.docs.new(doc_params)
         if @doc.save
-            redirect_to @doc
+            redirect_to docs_path
         else
             render 'new'
         end
