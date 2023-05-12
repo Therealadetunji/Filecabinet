@@ -1,8 +1,18 @@
 <%= form_with model: @doc do |f|%>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-    <%= f.label :content %>
-    <%= f.text_area :content %>
-    <%= f.submit %>
+
+    <form>
+
+        <h1 class="text-center"> <%= @doc.new_record? ? "Create New Document" : "Edit Document" %> </h1>
+
+        <div class="form-group ">
+            <%= f.label :Title %>
+            <%= f.text_field :title, class: "form-control", placeholder: "Enter Title of Document", style: "font-style: italic;" %>
+        </div>
+        <div class="form-group">
+            <%= f.label :Content %>
+            <%= f.text_area :content, class: "form-control", placeholder: "Enter Content", style: "font-style: italic; height: 10rem;" %>
+        </div>
+        <%= f.submit class: "btn btn-primary mt-2" %>
+    </form>
 
 <% end %>
