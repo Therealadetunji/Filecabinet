@@ -89,3 +89,4 @@ production:
   database: Filecabinet_production
   username: Filecabinet
   password: <%= ENV["FILECABINET_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
