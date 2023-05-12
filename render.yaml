@@ -1,6 +1,5 @@
 databases:
   - name: Filecabinet
-    user: postgres
 
 services:
   - type: web
