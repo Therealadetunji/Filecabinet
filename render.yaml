@@ -1,6 +1,5 @@
 databases:
   - name: Filecabinet
-    ipAllowList: []
 
 services:
   - type: web
@@ -13,8 +12,5 @@ services:
         fromDatabase:
           name: Filecabinet
           property: connectionString
-  - type: redis
-    name: redis
-    ipAllowList: []
-    plan: free
-    maxmemoryPolicy: noeviction        
+      - key: RAILS_MASTER_KEY
+        sync: false
