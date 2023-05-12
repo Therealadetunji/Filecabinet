@@ -1,13 +1,31 @@
-<% @docs.each do |doc| %>
-    <h2><%= link_to doc.title, doc %> </h2>
-    <p> <%= time_ago_in_words(doc.created_at) %> </p>
-    <p>
-    <%= 
-    truncate(doc.content, length: 20)
+    <% 
+        @docs.each do |doc|
     %>
-    </p>
-<% end %>
+<div class="container">
+<div class="card mb-5 text-center">
 
-<%= 
-    link_to "New Document", new_doc_path
-%>
+    <div class="card-title">
+        <h3><i><%= doc.title %></i> </h3>
+    </div>
+
+    <div class="card-body">
+        <%= 
+    truncate(doc.content, length: 40)
+    %>
+    </div>
+
+    <div class="time d-flex justify-content-start">
+        <p> Created: <%= time_ago_in_words(doc.created_at) %> </p>
+    </div>
+    
+    <div class="card-footer">
+     <button class="btn btn-primary">
+        <%=
+            link_to "View Document", doc, class: "btn btn-primary"
+        %>
+     </button>   
+    </div>
+
+</div>
+</div>
+    <% end %>

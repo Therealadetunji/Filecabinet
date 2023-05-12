@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand-lg h-2 bg-light">
+  <% 
+    if user_signed_in?
+  %>
+  <div class="container-fluid">
+  <a class="navbar-brand" href="/"><h2>File<small class="text-muted">Cabinet</small></h2></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-2">
+        <button class="btn btn-primary">
+                <%= link_to "Documents", docs_path, class: "text-light", style: "text-decoration: none;" %>
+             <span class="badge text-bg-secondary">
+                <%= current_user.docs.count %>
+            </span>
+        </button>
+        <li class="nav-item">
+          <%=
+            link_to "New document", new_doc_path, class: "btn btn-primary"
+          %>
+        </li>
+      </ul>
+      <div class="list-unstyled">
+        <li>
+            <%= link_to "Sign out", destroy_user_session_path, class: "btn btn-primary" %>
+        </li>      
+      </div>
+    </div>
+    <% 
+        else
+    %>
+    <a class="navbar-brand" href="/">File<small class="text-muted">Cabinet</small></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      </ul>
+      <div class="gap-2 d-flex flex-row list-unstyled">
+        <li>
+            <%= link_to "Log in", new_user_session_path, class: "btn btn-primary" %>
+        </li>
+        <li>
+            <%= link_to "Sign up", new_user_registration_path, class: "btn btn-secondary" %>
+        </li>        
+      </div>
+    </div>
+  </div>
+    <% 
+        end
+    %>
+</nav>
