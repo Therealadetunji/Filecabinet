@@ -1,8 +1,6 @@
 databases:
   - name: Filecabinet
     ipAllowList: []
-    databaseName: Filecabinet
-    user: postgres
 
 services:
   - type: web
